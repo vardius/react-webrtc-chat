@@ -1,0 +1,25 @@
+@function sqrt($r) {
+  $x0: 1;
+  $x1: $x0;
+  @for $i from 1 through 100 {
+    $x1: $x0 - ($x0 * $x0 - abs($r)) / (2 * $x0);
+    $x0: $x1;
+  }
+  @return $x1;
+}
+
+.participant {
+  height: 100%;
+  width: 100%;
+  @for $i from 1 through 100 {
+    video:first-child:nth-last-child(#{$i}),
+    video:first-child:nth-last-child(#{$i}) ~ video {
+      margin: 0;
+      padding: 0;
+      font-size: 0;
+      content: "#{$i}";
+      width: calc(100% / #{ceil(sqrt($i))});
+      height: calc(100% / #{round(sqrt($i))});
+    }
+  }
+}

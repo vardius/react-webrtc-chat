@@ -1,0 +1,15 @@
+.sidebarItem {
+  width: 100%;
+}
+
+.stickyBottom {
+  position: sticky !important;
+  position: -webkit-sticky !important;
+  right: 0;
+  left: 0;
+  bottom: 0;
+}
+
+.scrollAuto {
+  overflow: auto;
+}

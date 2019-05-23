@@ -1,17 +1,41 @@
 {
   "name": "react-webrtc-chat",
   "version": "0.1.0",
-  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vardius/react-webrtc-chat.git"
+  },
+  "author": {
+    "name": "Rafał Lorenz",
+    "email": "vardius@gmail.com"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vardius/react-webrtc-chat/issues"
+  },
+  "homepage": "https://github.com/vardius/react-webrtc-chat#readme",
   "dependencies": {
+    "@vardius/react-user-media": "^1.0.0",
+    "bootstrap": "^4.3.1",
+    "express": "^4.17.0",
+    "font-awesome": "^4.7.0",
+    "node-sass": "^4.12.0",
+    "peer-data": "^3.1.2",
+    "peer-data-server": "^1.0.10",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-scripts": "3.0.1"
+    "react-peer-data": "^1.0.0",
+    "react-scripts": "3.0.1",
+    "sass-loader": "^7.1.0",
+    "socket.io": "^2.2.0"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "NODE_ENV=production yarn server",
+    "dev": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "server": "node server/index.js"
   },
   "eslintConfig": {
     "extends": "react-app"
