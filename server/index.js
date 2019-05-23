@@ -7,9 +7,9 @@ const DEFAULT_PORT = parseInt(process.env.PORT, 10) || (process.env.NODE_ENV ===
 const app = express();
 
 if (process.env.NODE_ENV === 'production') {
-    app.use(express.static(path.join(__dirname, '../build')));
+    app.use(express.static(path.join(__dirname, '../build/static')));
     app.get('*', (req, res) => {
-        res.sendfile(path.join(__dirname, '../build/index.html'));
+        res.sendFile(path.join(__dirname, '../build/index.html'));
     })
 }
 
