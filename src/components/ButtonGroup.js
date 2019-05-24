@@ -1,7 +1,7 @@
 import React, { Fragment, useEffect, useState } from "react";
 import PropTypes from "prop-types";
 
-function ButtonGroup({ stream, className, ...props }) {
+function ButtonGroup({ stream, ...props }) {
   const [hasAudio, setAudio] = useState(true);
   const [hasVideo, setVideo] = useState(true);
   const [isFullscreen, setFullscreen] = useState(false);
@@ -79,7 +79,7 @@ function ButtonGroup({ stream, className, ...props }) {
   };
 
   return (
-    <div className={`btn-group ${className}`} role="group" aria-label="Controls" {...props}>
+    <div className="btn-group" role="group" aria-label="Controls" {...props}>
       {stream && (
         <Fragment>
           <button
@@ -116,8 +116,7 @@ function ButtonGroup({ stream, className, ...props }) {
 }
 
 ButtonGroup.propTypes = {
-  stream: PropTypes.object,
-  className: PropTypes.string
+  stream: PropTypes.object
 };
 
 export default ButtonGroup;

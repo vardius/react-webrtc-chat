@@ -1,10 +1,11 @@
 import React, { useRef, useEffect, useReducer, useState } from "react";
 import PropTypes from "prop-types";
+import { usePeerData } from "react-peer-data";
 import ButtonGroup from "components/ButtonGroup";
 import MessageForm from "components/MessageForm";
 import MessageList from "components/MessageList";
 import ParticipantList from "components/ParticipantList";
-import { usePeerData } from "react-peer-data";
+import Video from "components/Video";
 
 import styles from "components/Room.module.scss";
 
@@ -124,22 +125,27 @@ function Room({ name, username, stream }) {
           <span className="badge badge-danger">{newMessagesCount}</span>
         </button>
       )}
-      <div className="col-md-9">
+      {stream && (
+        <Video
+          stream={stream}
+          autoPlay
+          muted
+          className={styles.webcam}
+        />
+      )}
+      <div className={showSidebar ? 'col-md-9' : 'col-md-12'}>
         <ParticipantList participants={participants} streams={streams} />
       </div>
       {showSidebar && (
-        <div className="col-md-3 h-100 ">
-          <div className="row justify-content-center sticky-top mb-2">
-            <ButtonGroup stream={stream} className={`${styles.sidebarItem}`} />
+        <div className="col-md-3">
+          <div className={`sticky-top mb-2 text-center`}>
+            <ButtonGroup stream={stream} />
           </div>
-          <div className={`row ${styles.sidebarItem} ${styles.scrollAuto}`}>
+          <div className={`row ${styles.sidebarItem} ${styles.messageList}`}>
             <MessageList messages={messages} />
           </div>
-          <div className={`row ${styles.stickyBottom}`}>
-            <MessageForm
-              onMessageSend={handleSendMessage}
-              className={`${styles.sidebarItem}`}
-            />
+          <div className={`${styles.stickyBottom} ${styles.sidebarItem}`}>
+            <MessageForm onMessageSend={handleSendMessage} />
           </div>
         </div>
       )}

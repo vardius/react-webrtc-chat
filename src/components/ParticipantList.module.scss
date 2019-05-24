@@ -9,8 +9,6 @@
 }
 
 .participant {
-  height: 100%;
-  width: 100%;
   @for $i from 1 through 100 {
     video:first-child:nth-last-child(#{$i}),
     video:first-child:nth-last-child(#{$i}) ~ video {

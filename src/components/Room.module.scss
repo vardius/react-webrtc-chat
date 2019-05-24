@@ -1,15 +1,23 @@
+.webcam {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  height: 100px;
+  z-index: 1;
+}
+
 .sidebarItem {
   width: 100%;
 }
 
 .stickyBottom {
   position: sticky !important;
-  position: -webkit-sticky !important;
   right: 0;
   left: 0;
   bottom: 0;
 }
 
-.scrollAuto {
-  overflow: auto;
+.messageList {
+  height: 100vh;
+  overflow-y: auto;
 }

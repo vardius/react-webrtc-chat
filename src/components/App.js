@@ -25,18 +25,18 @@ function App() {
       ) : (
         <Fragment>
           {error && (
-            <div className="row mt-2 justify-content-center">
+            <div className="row justify-content-center mt-2">
               <UserMediaError error={error} />
             </div>
           )}
-          <div className="row mt-2 justify-content-center">
+          <div className="row justify-content-center mt-2">
             <RoomForm onJoin={handleJoin} />
           </div>
-          <div className="row mt-2 justify-content-center">
+          <div className="row justify-content-center mt-2">
             <ButtonGroup stream={stream} />
           </div>
           {stream && (
-            <div className="row mt-2 justify-content-center">
+            <div className="row justify-content-center mt-2">
               <Video stream={stream} autoPlay muted />
             </div>
           )}
