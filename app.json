@@ -2,5 +2,19 @@
     "name": "React WebRTC Chat",
     "description": "React Serverless chat application using peer to peer WebRTC",
     "repository": "https://github.com/vardius/react-webrtc-chat",
-    "keywords": ["node", "websocket", "socket.io", "socketio", "webrtc", "server", "peer", "peertopeer", "peer2peer", "peer-data", "react", "chat", "serverless"]
+    "keywords": [
+        "node",
+        "websocket",
+        "socket.io",
+        "socketio",
+        "webrtc",
+        "server",
+        "peer",
+        "peertopeer",
+        "peer2peer",
+        "peer-data",
+        "react",
+        "chat",
+        "serverless"
+    ]
 }
