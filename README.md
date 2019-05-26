@@ -1,4 +1,4 @@
-# [React WebRTC Chat](http://rafallorenz.com/react-react-webrtc-chat)
+# [React WebRTC Chat](https://react-webrtc-chat.herokuapp.com/)
 [![Build Status](https://travis-ci.org/vardius/react-webrtc-chat.svg?branch=master)](https://travis-ci.org/vardius/react-webrtc-chat)
 [![codecov](https://codecov.io/gh/vardius/react-webrtc-chat/branch/master/graph/badge.svg)](https://codecov.io/gh/vardius/react-webrtc-chat)
 
@@ -10,7 +10,7 @@ Example usage of
 - [PeerData](https://github.com/vardius/peer-data) library.
 - [ReactPeerData](https://github.com/vardius/react-peer-data) library.
 
-[DEMO](https://vardius-react-webrtc-chat.herokuapp.com/)
+[DEMO](https://react-webrtc-chat.herokuapp.com/)
 
 <!-- ![Login](../master/.github/login.png)
 ![Chat](../master/.github/chat.png) -->
