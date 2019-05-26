@@ -6,8 +6,11 @@
   z-index: 1;
 }
 
-.sidebarItem {
-  width: 100%;
+.sidebarActions {
+  position: absolute;
+  top: 3px;
+  right: 3px;
+  z-index: 1;
 }
 
 .stickyBottom {

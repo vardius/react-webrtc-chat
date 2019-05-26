@@ -1,10 +1,23 @@
 import React, { Fragment, useEffect, useState } from "react";
 import PropTypes from "prop-types";
 
-function ButtonGroup({ stream, ...props }) {
-  const [hasAudio, setAudio] = useState(true);
-  const [hasVideo, setVideo] = useState(true);
-  const [isFullscreen, setFullscreen] = useState(false);
+function isEnabled(aggregator, track) {
+  return aggregator && track.enabled;
+}
+
+function UserMediaActions({ stream, ...props }) {
+  const [hasAudio, setAudio] = useState(
+    stream ? stream.getAudioTracks().reduce(isEnabled, true) : true
+  );
+  const [hasVideo, setVideo] = useState(
+    stream ? stream.getVideoTracks().reduce(isEnabled, true) : true
+  );
+  const [isFullscreen, setFullscreen] = useState(
+    document.fullscreenElement ||
+      document.mozFullScreenElement ||
+      document.webkitFullscreenElement ||
+      document.msFullscreenElement
+  );
 
   useEffect(() => {
     if (!stream) {
@@ -66,15 +79,15 @@ function ButtonGroup({ stream, ...props }) {
     }
   }, [isFullscreen]);
 
-  const toggleAudio = () => {
+  const handleToggleAudio = () => {
     setAudio(v => !v);
   };
 
-  const toggleVideo = () => {
+  const handleToggleVideo = () => {
     setVideo(v => !v);
   };
 
-  const toggleFullScreen = () => {
+  const handleToggleFullScreen = () => {
     setFullscreen(v => !v);
   };
 
@@ -85,18 +98,16 @@ function ButtonGroup({ stream, ...props }) {
           <button
             type="button"
             title="Toggle camera"
-            onClick={toggleVideo}
-            className={"btn btn-secondary " + (hasVideo ? "active" : "")}
-            aria-pressed={hasVideo}
+            className={"btn btn-outline-" + (hasVideo ? "success" : "danger")}
+            onClick={handleToggleVideo}
           >
             <i className="fa fa-video-camera" aria-hidden="true" />
           </button>
           <button
             type="button"
             title="Toggle microphone"
-            onClick={toggleAudio}
-            aria-pressed={toggleAudio}
-            className={"btn btn-secondary " + (hasAudio ? "active" : "")}
+            className={"btn btn-outline-" + (hasAudio ? "success" : "danger")}
+            onClick={handleToggleAudio}
           >
             <i className="fa fa-deaf" aria-hidden="true" />
           </button>
@@ -105,9 +116,8 @@ function ButtonGroup({ stream, ...props }) {
       <button
         type="button"
         title="Toggle fullscreen"
-        onClick={toggleFullScreen}
-        aria-pressed={isFullscreen}
-        className={"btn btn-secondary " + (isFullscreen ? "active" : "")}
+        className={"btn btn-" + (isFullscreen ? "success" : "outline-success")}
+        onClick={handleToggleFullScreen}
       >
         <i className="fa fa-arrows-alt" aria-hidden="true" />
       </button>
@@ -115,8 +125,8 @@ function ButtonGroup({ stream, ...props }) {
   );
 }
 
-ButtonGroup.propTypes = {
+UserMediaActions.propTypes = {
   stream: PropTypes.object
 };
 
-export default ButtonGroup;
+export default UserMediaActions;

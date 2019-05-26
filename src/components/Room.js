@@ -1,7 +1,8 @@
 import React, { useRef, useEffect, useReducer, useState } from "react";
 import PropTypes from "prop-types";
 import { usePeerData } from "react-peer-data";
-import ButtonGroup from "components/ButtonGroup";
+import SidebarActions from "components/SidebarActions";
+import UserMediaActions from "components/UserMediaActions";
 import MessageForm from "components/MessageForm";
 import MessageList from "components/MessageList";
 import ParticipantList from "components/ParticipantList";
@@ -47,8 +48,8 @@ function Room({ name, username, stream }) {
   const peerData = usePeerData();
   const [state, dispatch] = useReducer(reducer, initialState);
   const [messages, setMessages] = useState([]);
-  const [showSidebar, setShowSidebar] = useState(true);
   const [newMessagesCount, setNewMessagesCount] = useState(0);
+  const [showSidebar, setShowSidebar] = useState(true);
 
   useEffect(() => {
     if (room.current) return;
@@ -79,9 +80,7 @@ function Room({ name, username, stream }) {
               { ...JSON.parse(payload), incoming: true }
             ]);
 
-            if (!showSidebar) {
-              setNewMessagesCount(count => ++count);
-            }
+            setNewMessagesCount(count => ++count);
           })
           .on("error", event => {
             console.error("peer", participant.id, event);
@@ -104,47 +103,39 @@ function Room({ name, username, stream }) {
     }
   };
 
-  const handleToggleSidebar = () => {
-    if (!showSidebar) {
-      setNewMessagesCount(count => ++count);
+  const handleToggleSidebar = isOpen => {
+    if (isOpen) {
+      setNewMessagesCount(0);
     }
-    setShowSidebar(v => !v);
+
+    setShowSidebar(isOpen);
   };
 
   const { participants, streams } = state;
 
   return (
     <div className="row">
-      {newMessagesCount > 0 && (
-        <button
-          type="button"
-          className="btn btn-primary"
-          onClick={handleToggleSidebar}
-        >
-          <i className="fa fa-envelope" aria-hidden="true" />
-          <span className="badge badge-danger">{newMessagesCount}</span>
-        </button>
-      )}
       {stream && (
-        <Video
-          stream={stream}
-          autoPlay
-          muted
-          className={styles.webcam}
-        />
+        <Video stream={stream} autoPlay muted className={styles.webcam} />
       )}
-      <div className={showSidebar ? 'col-md-9' : 'col-md-12'}>
+      <div className={showSidebar ? "col-md-9" : "col-md-12"}>
+        <SidebarActions
+          className={`${styles.sidebarActions} mt-2 mb-2`}
+          count={newMessagesCount}
+          isOpen={showSidebar}
+          onToggleSidebar={handleToggleSidebar}
+        />
         <ParticipantList participants={participants} streams={streams} />
       </div>
       {showSidebar && (
         <div className="col-md-3">
-          <div className={`sticky-top mb-2 text-center`}>
-            <ButtonGroup stream={stream} />
+          <div className={`sticky-top mt-2 mb-2 text-center`}>
+            <UserMediaActions stream={stream} />
           </div>
-          <div className={`row ${styles.sidebarItem} ${styles.messageList}`}>
+          <div className={`${styles.messageList}`}>
             <MessageList messages={messages} />
           </div>
-          <div className={`${styles.stickyBottom} ${styles.sidebarItem}`}>
+          <div className={styles.stickyBottom}>
             <MessageForm onMessageSend={handleSendMessage} />
           </div>
         </div>

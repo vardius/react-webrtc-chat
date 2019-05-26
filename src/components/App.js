@@ -4,7 +4,7 @@ import {
   useUserMediaFromContext
 } from "@vardius/react-user-media";
 import Video from "components/Video";
-import ButtonGroup from "components/ButtonGroup";
+import UserMediaActions from "components/UserMediaActions";
 import Room from "components/Room";
 import RoomForm from "components/RoomForm";
 
@@ -33,7 +33,7 @@ function App() {
             <RoomForm onJoin={handleJoin} />
           </div>
           <div className="row justify-content-center mt-2">
-            <ButtonGroup stream={stream} />
+            <UserMediaActions stream={stream} />
           </div>
           {stream && (
             <div className="row justify-content-center mt-2">

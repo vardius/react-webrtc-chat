@@ -1,6 +1,7 @@
 {
   "name": "react-webrtc-chat",
   "version": "0.1.0",
+  "proxy": "http://localhost:8080",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/vardius/react-webrtc-chat.git"
@@ -13,7 +14,6 @@
   "bugs": {
     "url": "https://github.com/vardius/react-webrtc-chat/issues"
   },
-  "homepage": "https://github.com/vardius/react-webrtc-chat#readme",
   "dependencies": {
     "@vardius/react-user-media": "^1.0.0",
     "bootstrap": "^4.3.1",
@@ -35,7 +35,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "server": "node server/index.js"
+    "server": "node server.js"
   },
   "eslintConfig": {
     "extends": "react-app"
