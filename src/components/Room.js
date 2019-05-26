@@ -92,7 +92,7 @@ function Room({ name, username, stream }) {
       });
 
     return () => room.current.disconnect();
-  }, []);
+  }, [name, peerData, stream]);
 
   const handleSendMessage = message => {
     setMessages(msgs => [...msgs, { username, message }]);
