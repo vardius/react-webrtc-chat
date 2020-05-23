@@ -3,7 +3,7 @@ const path = require("path");
 const http = require("http");
 const PeerDataServer = require("peer-data-server");
 
-const DEFAULT_PORT = parseInt(process.env.PORT, 10) || (process.env.NODE_ENV === "production" ? 8080 : 3001);
+const PORT = parseInt(process.env.PORT, 10) || (process.env.NODE_ENV === "production" ? 8080 : 3001);
 
 const app = express();
 
@@ -14,9 +14,9 @@ if (process.env.NODE_ENV === "production") {
   );
 }
 
-const appendPeerCdnServer = PeerDataServer.default || PeerDataServer;
+const appendPeerDataServer = PeerDataServer.default || PeerDataServer;
 const server = http.createServer(app);
 
-appendPeerCdnServer(server);
+appendPeerDataServer(server);
 
-server.listen(DEFAULT_PORT, () => console.log(`Server started at port ${DEFAULT_PORT}`));
+server.listen(PORT, () => console.log(`Server started at port ${PORT}`));
