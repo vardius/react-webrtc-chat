@@ -5,6 +5,8 @@ import { PeerDataProvider } from "react-peer-data";
 import { UserMediaProvider } from "@vardius/react-user-media";
 import App from "./App";
 
+const dispatcher = new EventDispatcher();
+
 it("renders without crashing", () => {
   const div = document.createElement("div");
   ReactDOM.render(
@@ -18,7 +20,7 @@ it("renders without crashing", () => {
       }}
       constraints={{ ordered: true }}
       signaling={{
-        dispatcher: new EventDispatcher(),
+        dispatcher: dispatcher,
       }}
     >
       <UserMediaProvider constraints={{ audio: true, video: true }}>

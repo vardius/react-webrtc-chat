@@ -7440,19 +7440,10 @@ peer-data-server@^1.0.10:
   resolved "https://registry.yarnpkg.com/peer-data-server/-/peer-data-server-1.0.10.tgz#9a1f410d36aabf2a3a75d1cfa60090eebcfac49f"
   integrity sha512-2cmvyTvea39Jlaxhp4CLnkuBHn6vgcjwyJpVVBFCdwQp3LCzO7xzuBQ5MkA3id/xCuRHRFt/fcARGHlHcWVs9Q==
 
-peer-data@^3.1.7:
-  version "3.2.0"
-  resolved "https://registry.yarnpkg.com/peer-data/-/peer-data-3.2.0.tgz#aebc193a99eff5159a668edad1bd56e4b1921ce0"
-  integrity sha512-C/5ceilebBfV5yPC3FUkZZCRcjYqPEXkYM2dGp+bzzH56ee68624ZWVYDlGBedSW61lyIMDF/If2lt0cERDy7g==
-  dependencies:
-    "@types/uuid" "^8.0.0"
-    socket.io-client "^2.3.0"
-    uuid "^8.1.0"
-
-peer-data@^3.2.1:
-  version "3.2.1"
-  resolved "https://registry.yarnpkg.com/peer-data/-/peer-data-3.2.1.tgz#0dc815ff912194c8ad99436e460616c3cae8dcbd"
-  integrity sha512-oVu5qXXGuqBXnqw49RUUElODEYbJWRJfvh2be7iIn1U2ugpE2wsNNkhQVmkf1o9aNwhHvv2MeVU2+CwlQO1isg==
+peer-data@^3.2.2:
+  version "3.2.2"
+  resolved "https://registry.yarnpkg.com/peer-data/-/peer-data-3.2.2.tgz#56df0181158b27a978a0bf063af0345d0b0268b6"
+  integrity sha512-Qs6QuWzfri+irLz1eZfP3Zc3k7wNBpUqd1iWI02p8XnuG4tzXyYNBRn8UhQitwYJnllKBJOmqAd4wLzZiWomHQ==
   dependencies:
     "@types/uuid" "^8.0.0"
     socket.io-client "^2.3.0"
@@ -8488,12 +8479,12 @@ react-is@^16.8.1, react-is@^16.8.4:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
   integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
 
-react-peer-data@^1.1.1:
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/react-peer-data/-/react-peer-data-1.1.1.tgz#6cc48367cac435598d1b08567a4ce25e82ef9066"
-  integrity sha512-bs4D7u4wx15dlm6uawTutKYE9QwtaqHKAJ2A84Spvp1QRDj/uhKipWYkVK1VNYNH0nmK2jivutov/Doeoh6y1A==
+react-peer-data@^1.1.2:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/react-peer-data/-/react-peer-data-1.1.2.tgz#b57dceacbb82e7958926b743784c8d6a905a0414"
+  integrity sha512-LBbpKnZxJ8Z2i0ZzCQ0Cieg/kWuF0xPmo02wRNOiXu7miixp5tAQg0Y88vv3vrIDoHFB7tLoJ3WsIQn8gqQLkg==
   dependencies:
-    peer-data "^3.2.1"
+    peer-data "^3.2.2"
 
 react-scripts@3.0.1:
   version "3.0.1"
