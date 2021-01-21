@@ -27,7 +27,7 @@
     "react-peer-data": "^1.1.2",
     "react-scripts": "3.0.1",
     "sass-loader": "^7.1.0",
-    "socket.io": "^2.2.0"
+    "socket.io": "^2.4.0"
   },
   "scripts": {
     "start": "NODE_ENV=production yarn server",
